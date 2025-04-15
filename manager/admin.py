@@ -5,12 +5,12 @@ from manager.models import Position, Worker, Task, TaskType
 
 @admin.register(Worker)
 class WorkerAdmin(UserAdmin):
-    list_display = UserAdmin.list_display + ("position", )
+    list_display = UserAdmin.list_display + ("first_name", "last_name", "position", )
     fieldsets = UserAdmin.fieldsets + ((
         "Additional info", {"fields": ("position",)}
     ),)
     add_fieldsets = UserAdmin.add_fieldsets + ((
-        "Additional info", {"fields": ("position",)}
+        "Additional info", {"fields": ("first_name", "last_name", "position",)}
     ),)
 
 
