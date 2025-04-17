@@ -75,7 +75,13 @@ class WorkerListView(ListView):
 
 class WorkerDetailView(DetailView):
     model = Worker
-    queryset = Worker.objects.select_related()
+    queryset = Worker.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        worker = self.get_object()
+        context["tasks"] = worker.tasks.all()
+        return context
 
 
 class TaskListView(ListView):
