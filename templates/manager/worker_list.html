@@ -11,8 +11,8 @@
     {% for worker in page_obj %}
       {% if not worker.is_superuser %}
         <tr>
-          <td>{{ worker.first_name }}</td>
-          <td>{{ worker.last_name }}</td>
+          <td><a href="{% url 'manager:worker-detail' worker.pk %}">{{ worker.first_name }}</a></td>
+          <td><a href="{% url 'manager:worker-detail' worker.pk %}">{{ worker.last_name }}</td>
           <td>{{ worker.position }}</td>
         </tr>
       {% endif %}
