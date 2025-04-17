@@ -83,6 +83,11 @@ class TaskListView(ListView):
     model = Task
     queryset = Task.objects.select_related()
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["task_list"] = Task.objects.all()
+        return context
+
 
 class TaskDetailView(DetailView):
     model = Task
