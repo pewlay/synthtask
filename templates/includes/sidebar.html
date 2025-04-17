@@ -1,4 +1,17 @@
 <ul class="sidebar-nav">
+  {% if user.is_authenticated %}
+    <li>
+      Hello, {{ user.first_name }}
+    </li>
+    <li>
+      <a href="{% url 'logout' %}">Logout</a>
+    </li>
+  {% else %}
+    <li>
+      <a href="{% url 'login' %}">Login</a>
+    </li>
+  {% endif %}
+  <br>
   <li><a href="{% url 'manager:home' %}">Home page</a></li>
   <li><a href="{% url 'manager:position-list' %}">Positions</a></li>
   <li><a href="{% url 'manager:task_type-list' %}">Types of tasks</a></li>
