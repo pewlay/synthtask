@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ worker.first_name }} {{ worker.last_name }}'s Profile</h1>
+  <p><strong>Position:</strong> {{ worker.position }}</p>
+  <p><strong>Email:</strong> {{ worker.email }}</p>
+  <p><strong>Joined:</strong> {{ worker.date_joined }}</p>
+
+  <h2>Tasks Assigned to {{ worker.first_name }}</h2>
+  <ul>
+    {% for task in tasks %}
+      <li>{{ task.name }} - {{ task.description }}</li>
+    {% empty %}
+      <li>No tasks assigned</li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'manager:worker-list' %}">Back to Workers List</a>
+{% endblock %}
