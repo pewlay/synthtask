@@ -64,7 +64,13 @@ class TaskTypeListView(ListView):
 
 class WorkerListView(ListView):
     model = Worker
-    paginate_by = 5
+    template_name = "manager/worker_list.html"
+    paginate_by = 8
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["worker_list"] = Worker.objects.exclude(is_superuser=True)
+        return context
 
 
 class WorkerDetailView(DetailView):
