@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Positions</h1>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Tasks</th>
+    </tr>
+    {% for position in position_list %}
+      <tr>
+        <td>{{ position.name }}</td>
+        <td>{{ position.task_count }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
