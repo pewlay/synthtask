@@ -1,9 +1,12 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from manager.models import Worker, Task, Position, TaskType
 
 
+@login_required
 def home(request: HttpRequest) -> HttpResponse:
     context = {
         "num_workers": Worker.objects.count(),
@@ -13,7 +16,7 @@ def home(request: HttpRequest) -> HttpResponse:
     return render(request, 'manager/home.html', context=context)
 
 
-class PositionListView(ListView):
+class PositionListView(LoginRequiredMixin, ListView):
     model = Position
     template_name = "manager/position_list.html"
     context_object_name = "position_list"
@@ -30,7 +33,7 @@ class PositionListView(ListView):
         return context
 
 
-class TaskTypeListView(ListView):
+class TaskTypeListView(LoginRequiredMixin, ListView):
     model = TaskType
     template_name = "manager/type_of_task_list.html"
     paginate_by = 5
@@ -62,7 +65,7 @@ class TaskTypeListView(ListView):
         return context
 
 
-class WorkerListView(ListView):
+class WorkerListView(LoginRequiredMixin, ListView):
     model = Worker
     template_name = "manager/worker_list.html"
     paginate_by = 8
@@ -73,7 +76,7 @@ class WorkerListView(ListView):
         return context
 
 
-class WorkerDetailView(DetailView):
+class WorkerDetailView(LoginRequiredMixin, DetailView):
     model = Worker
     queryset = Worker.objects.all()
 
@@ -84,7 +87,7 @@ class WorkerDetailView(DetailView):
         return context
 
 
-class TaskListView(ListView):
+class TaskListView(LoginRequiredMixin, ListView):
     paginate_by = 5
     model = Task
     queryset = Task.objects.select_related()
@@ -95,6 +98,6 @@ class TaskListView(ListView):
         return context
 
 
-class TaskDetailView(DetailView):
+class TaskDetailView(LoginRequiredMixin, DetailView):
     model = Task
     queryset = Task.objects.select_related()
