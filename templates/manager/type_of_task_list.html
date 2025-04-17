@@ -4,7 +4,11 @@
 {% block content %}
   <h1>Type of tasks</h1>
   <table>
-    {% for task_type in task_type_list %}
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+    {% for task_type in page_obj %}
       <tr>
         <td>{{ task_type.name }}</td>
         <td>{{ task_type_description|dict_get:task_type.name }}</td>
