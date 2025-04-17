@@ -6,3 +6,8 @@ body {
     padding: 0;
     list-style: none;
 }
+
+.pagination .page-item.active .page-link {
+    color: blue;
+    background: white;
+}
