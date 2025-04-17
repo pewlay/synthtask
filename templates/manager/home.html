@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Your favourite Task Manager</h1>
+  <ul>
+    <li><strong>In your company:</strong> {{ num_workers }} workers.</li>
+    <li><strong>Your company created a </strong> {{ num_tasks }} tasks.</li>
+  </ul>
+
+{% endblock %}
