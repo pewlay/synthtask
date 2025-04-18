@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="home-container">
-    <h1 class="main-heading">Hello, <span class="highlight">{{ current_user.first_name }}</span>!</h1>
+  <div class="container mt-5">
+    <h1 class="main-heading text-center mb-5">Hello, <span class="highlight">{{ current_user.first_name }}</span>!</h1>
 
-    <div class="row mt-4">
-      <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-4 mb-4">
         <div class="card stat-card add-task-card" onclick="window.location.href='{% url 'manager:task-create' %}'">
           <div class="card-body text-white">
             <h5 class="card-title">Add Task</h5>
@@ -14,8 +14,8 @@
         </div>
       </div>
 
-      <div class="col-md-4">
-        <div class="card stat-card">
+      <div class="col-md-4 mb-4">
+        <div class="card stat-card add-task-card" onclick="window.location.href='{% url 'manager:task-list' %}'">
           <div class="card-body">
             <h5 class="card-title">Your Tasks</h5>
             <p class="card-text display-4">{{ total_tasks }}</p>
@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4 mb-4">
         <div class="card stat-card">
           <div class="card-body">
             <h5 class="card-title">Completed</h5>
@@ -34,7 +34,7 @@
     </div>
 
     <div class="row mt-4">
-      <div class="col-md-12">
+      <div class="col-md-12 mb-4">
         <div class="card stat-card">
           <div class="card-body">
             <h5 class="card-title">Oldest Active Task</h5>
@@ -52,7 +52,7 @@
     </div>
 
     <div class="row mt-4">
-      <div class="col-md-6">
+      <div class="col-md-6 mb-4">
         <div class="card priority-card">
           <div class="card-body">
             <h5 class="card-title">Your Task Priorities</h5>
@@ -68,7 +68,7 @@
         </div>
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-6 mb-4">
         <div class="card upcoming-card">
           <div class="card-body">
             <h5 class="card-title">Upcoming Deadlines</h5>
