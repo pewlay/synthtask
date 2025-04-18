@@ -3,18 +3,34 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.utils.timezone import now
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+
+from manager.forms import PositionForm, TaskTypeForm, WorkerForm, TaskForm
 from manager.models import Worker, Task, Position, TaskType
 
 
 @login_required
 def home(request: HttpRequest) -> HttpResponse:
-    context = {
-        "num_workers": Worker.objects.count(),
-        "num_tasks": Task.objects.count(),
+    user = request.user
+    user_tasks = user.tasks.select_related("task_type").all()
+    upcoming_user_tasks = user_tasks.filter(deadline__gte=now(), is_completed=False).order_by("deadline")[:3]
+    task_priority_count = {
+        "Urgent": user_tasks.filter(priority="URGENT").count(),
+        "High": user_tasks.filter(priority="HIGH").count(),
+        "Medium": user_tasks.filter(priority="MEDIUM").count(),
+        "Low": user_tasks.filter(priority="LOW").count(),
     }
 
-    return render(request, 'manager/home.html', context=context)
+    context = {
+        "total_tasks": user_tasks.count(),
+        "completed_tasks": user_tasks.filter(is_completed=True).count(),
+        "upcoming_tasks": upcoming_user_tasks,
+        "priority_stats": task_priority_count,
+        "oldest_task": user_tasks.filter(is_completed=False).order_by("deadline").first(),
+        "current_user": user,
+    }
+    return render(request, 'manager/home.html', context)
 
 
 class PositionListView(LoginRequiredMixin, ListView):
@@ -36,14 +52,14 @@ class PositionListView(LoginRequiredMixin, ListView):
 
 class PositionCreateView(LoginRequiredMixin, CreateView):
     model = Position
-    fields = "__all__"
+    form_class = PositionForm
     success_url = reverse_lazy("manager:position-list")
     template_name = "manager/position_form.html"
 
 
 class PositionUpdateView(LoginRequiredMixin, UpdateView):
     model = Position
-    fields = "__all__"
+    form_class = PositionForm
     success_url = reverse_lazy("manager:position-list")
     template_name = "manager/position_form.html"
 
@@ -88,14 +104,14 @@ class TaskTypeListView(LoginRequiredMixin, ListView):
 
 class TaskTypeCreateView(LoginRequiredMixin, CreateView):
     model = TaskType
-    fields = "__all__"
+    form_class = TaskTypeForm
     success_url = reverse_lazy("manager:task_type-list")
     template_name = "manager/tasktype_form.html"
 
 
 class TaskTypeUpdateView(LoginRequiredMixin, UpdateView):
     model = TaskType
-    fields = "__all__"
+    form_class = TaskTypeForm
     success_url = reverse_lazy("manager:task_type-list")
     template_name = "manager/tasktype_form.html"
 
@@ -130,14 +146,14 @@ class WorkerDetailView(LoginRequiredMixin, DetailView):
 
 class WorkerCreateView(LoginRequiredMixin, CreateView):
     model = Worker
-    fields = "__all__"
+    form_class = WorkerForm
     success_url = reverse_lazy("manager:worker-list")
     template_name = "manager/worker_form.html"
 
 
 class WorkerUpdateView(LoginRequiredMixin, UpdateView):
     model = Worker
-    fields = "__all__"
+    form_class = WorkerForm
     success_url = reverse_lazy("manager:worker-list")
     template_name = "manager/worker_form.html"
 
@@ -166,14 +182,14 @@ class TaskDetailView(LoginRequiredMixin, DetailView):
 
 class TaskCreateView(LoginRequiredMixin, CreateView):
     model = Task
-    fields = "__all__"
+    form_class = TaskForm
     success_url = reverse_lazy("manager:task-list")
     template_name = "manager/task_form.html"
 
 
 class TaskUpdateView(LoginRequiredMixin, UpdateView):
     model = Task
-    fields = "__all__"
+    form_class = TaskForm
     success_url = reverse_lazy("manager:task-list")
     template_name = "manager/task_form.html"
 
