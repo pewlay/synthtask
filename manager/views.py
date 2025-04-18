@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.utils.timezone import now
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -169,15 +169,25 @@ class TaskListView(LoginRequiredMixin, ListView):
     model = Task
     queryset = Task.objects.select_related()
 
+    def get_queryset(self):
+        return Task.objects.filter(assignees=self.request.user)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["task_list"] = Task.objects.all()
+        context["task_list"] = self.get_queryset()
         return context
 
 
 class TaskDetailView(LoginRequiredMixin, DetailView):
     model = Task
-    queryset = Task.objects.select_related()
+    template_name = 'manager/task_detail.html'
+    context_object_name = 'task'
+
+    def post(self, request, *args, **kwargs):
+        task = self.get_object()
+        task.is_completed = not task.is_completed
+        task.save()
+        return redirect('manager:task-detail', pk=task.pk)
 
 
 class TaskCreateView(LoginRequiredMixin, CreateView):
