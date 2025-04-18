@@ -60,17 +60,21 @@ body {
 }
 
 .add-task-card {
-  background-color: #007bff;
+  background-color: #1780e8;
   color: white;
   cursor: pointer;
   text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 
 .add-task-card:hover,
 .add-task-card:focus,
 .add-task-card:active {
-  background-color: #007bff;
+  background-color: #0069d1;
   box-shadow: none;
   outline: none;
 }
@@ -118,3 +122,116 @@ input:focus, select:focus, textarea:focus {
   background-color: #0056b3;
   transform: translateY(-2px);
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.pagination .page-item {
+  margin: 0 5px;
+}
+
+.pagination .page-link {
+  border-radius: 50%;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease;
+}
+
+.pagination .page-link:hover {
+  background-color: #0056b3;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  font-weight: bold;
+}
+
+.pagination .page-item.disabled .page-link {
+  background-color: #e0e0e0;
+  color: #b0b0b0;
+  pointer-events: none;
+}
+
+
+.task-detail-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.task-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);
+}
+
+.card-header {
+  background-color: #f7f7f7;
+  padding: 15px;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #003366;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-footer {
+  padding: 15px;
+  background-color: #f7f7f7;
+  text-align: center;
+  border-radius: 0 0 8px 8px;
+}
+
+.card-footer .btn {
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.card-footer .btn:hover {
+  background-color: #0056b3;
+}
+
+
+.btn {
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 12px 24px;
+  text-align: center;
+  width: auto;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  border: 1px solid #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  color: white;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.mx-2 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
