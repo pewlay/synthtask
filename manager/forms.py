@@ -36,7 +36,6 @@ class TaskForm(forms.ModelForm):
         fields = ['name', 'description', 'priority', 'deadline', 'assignees', 'task_type']
         widgets = {
             'deadline': DateInput(attrs={'type': 'date', 'class': 'form-control'}),
-            'assignees': forms.CheckboxSelectMultiple(),  # Можна використовувати Checkboxes для вибору користувачів
         }
 
     def clean_assignees(self):
