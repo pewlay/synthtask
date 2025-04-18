@@ -1,13 +1,120 @@
 body {
-    margin-top: 20px;
+  background: linear-gradient(to bottom right, #e6f0ff, #ffffff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #003366;
 }
 
-.sidebar-nav {
-    padding: 0;
-    list-style: none;
+.home-container {
+  text-align: center;
+  padding: 40px 20px;
 }
 
-.pagination .page-item.active .page-link {
-    color: blue;
-    background: white;
+.main-heading {
+  font-size: 2.5rem;
+  color: #003366;
+  margin-bottom: 40px;
+}
+
+.highlight {
+  color: #007bff;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.display-4 {
+  font-size: 2.5rem;
+}
+
+.stat-card, .priority-card, .upcoming-card, .add-task-card {
+  background-color: #ffffff;
+  border: 1px solid #cce5ff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.stat-card:hover, .priority-card:hover, .upcoming-card:hover, .add-task-card:hover {
+  transform: translateY(-3px);
+}
+
+.stat-card {
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.add-task-card {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+.add-task-card:hover,
+.add-task-card:focus,
+.add-task-card:active {
+  background-color: #007bff;
+  box-shadow: none;
+  outline: none;
+}
+
+.add-task-card .card-body {
+  background-color: transparent !important;
+  color: white;
+}
+
+.add-task-card .card-body:hover {
+  background-color: transparent !important;
+}
+
+.stat-card, .priority-card, .upcoming-card {
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+  border-radius: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover, .priority-card:hover, .upcoming-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.25);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
 }
