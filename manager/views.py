@@ -37,7 +37,6 @@ class PositionListView(LoginRequiredMixin, ListView):
     model = Position
     template_name = "manager/position_list.html"
     context_object_name = "position_list"
-    paginate_by = 4
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -48,26 +47,6 @@ class PositionListView(LoginRequiredMixin, ListView):
                 for worker in workers
             )
         return context
-
-
-class PositionCreateView(LoginRequiredMixin, CreateView):
-    model = Position
-    form_class = PositionForm
-    success_url = reverse_lazy("manager:position-list")
-    template_name = "manager/position_form.html"
-
-
-class PositionUpdateView(LoginRequiredMixin, UpdateView):
-    model = Position
-    form_class = PositionForm
-    success_url = reverse_lazy("manager:position-list")
-    template_name = "manager/position_form.html"
-
-
-class PositionDeleteView(LoginRequiredMixin, DeleteView):
-    model = Position
-    success_url = reverse_lazy("manager:position-list")
-    template_name = "manager/position_confirm_delete.html"
 
 
 class TaskTypeListView(LoginRequiredMixin, ListView):
@@ -109,23 +88,10 @@ class TaskTypeCreateView(LoginRequiredMixin, CreateView):
     template_name = "manager/tasktype_form.html"
 
 
-class TaskTypeUpdateView(LoginRequiredMixin, UpdateView):
-    model = TaskType
-    form_class = TaskTypeForm
-    success_url = reverse_lazy("manager:task_type-list")
-    template_name = "manager/tasktype_form.html"
-
-
-class TaskTypeDeleteView(LoginRequiredMixin, DeleteView):
-    model = TaskType
-    success_url = reverse_lazy("manager:task_type-list")
-    template_name = "manager/tasktype_confirm_delete.html"
-
-
 class WorkerListView(LoginRequiredMixin, ListView):
     model = Worker
     template_name = "manager/worker_list.html"
-    paginate_by = 8
+    paginate_by = 9
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
