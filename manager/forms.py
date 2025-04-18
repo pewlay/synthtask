@@ -21,13 +21,12 @@ class TaskTypeForm(forms.ModelForm):
 class WorkerForm(forms.ModelForm):
     class Meta:
         model = Worker
-        fields = ['first_name', 'last_name', 'email', 'position', 'phone_number', 'is_active']
+        fields = ['first_name', 'last_name', 'email', 'position', 'is_active']
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'position': forms.Select(attrs={'class': 'form-control'}),
-            'phone_number': forms.TextInput(attrs={'class': 'form-control'}),
             'is_active': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
         }
 
@@ -36,7 +35,7 @@ class WorkerForm(forms.ModelForm):
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['title', 'description', 'priority', 'deadline', 'assignees', 'task_type']
+        fields = ['name', 'description', 'priority', 'deadline', 'assignees', 'task_type']
         widgets = {
             'deadline': DateInput(attrs={'type': 'date', 'class': 'form-control'}),
         }
