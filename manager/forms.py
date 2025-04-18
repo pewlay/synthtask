@@ -21,15 +21,13 @@ class TaskTypeForm(forms.ModelForm):
 class WorkerForm(forms.ModelForm):
     class Meta:
         model = Worker
-        fields = ['first_name', 'last_name', 'email', 'position', 'is_active']
-        widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            'position': forms.Select(attrs={'class': 'form-control'}),
-            'is_active': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
-        }
+        fields = ['first_name', 'last_name', 'email', 'position']  # додано тільки необхідні поля
 
+    def clean_position(self):
+        position = self.cleaned_data.get('position')
+        if not position:
+            raise forms.ValidationError('Position must be selected if it is required.')
+        return position
 
 
 class TaskForm(forms.ModelForm):
@@ -38,16 +36,11 @@ class TaskForm(forms.ModelForm):
         fields = ['name', 'description', 'priority', 'deadline', 'assignees', 'task_type']
         widgets = {
             'deadline': DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+            'assignees': forms.CheckboxSelectMultiple(),  # Можна використовувати Checkboxes для вибору користувачів
         }
 
-
-class UserCreateForm(UserCreationForm):
-    class Meta:
-        model = User
-        fields = ['username', 'email', 'password1', 'password2']
-        widgets = {
-            'username': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            'password1': forms.PasswordInput(attrs={'class': 'form-control'}),
-            'password2': forms.PasswordInput(attrs={'class': 'form-control'}),
-        }
+    def clean_assignees(self):
+        assignees = self.cleaned_data.get('assignees')
+        if not assignees:
+            raise forms.ValidationError('At least one assignee must be selected.')
+        return assignees
