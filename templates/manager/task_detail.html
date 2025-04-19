@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="card shadow-lg p-4 rounded-lg border-0 bg-light">
+      <h2 class="mb-4 text-primary text-center">{{ task.name }}</h2>
+      <p class="text-muted text-center">{{ task.task_type }}</p>
+
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <strong>Description:</strong>
+          <p>{{ task.description }}</p>
+        </div>
+        <div class="col-md-6">
+          <strong>Deadline:</strong>
+          <p>{{ task.deadline|date:"M d, Y H:i" }}</p>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <strong>Priority:</strong>
+          <p>{{ task.priority }}</p>
+        </div>
+        <div class="col-md-6">
+          <strong>Status:</strong>
+          <p class="text-success d-inline">{{ task.is_completed|yesno:"Completed,Not completed" }}</p>
+          <form method="post" class="d-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-light shadow-sm ml-2">
+              {% if task.is_completed %} Mark as Not Completed {% else %} Mark as Completed {% endif %}
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="{% url 'manager:task-list' %}" class="btn btn-outline-dark shadow-sm mx-2">
+          Back to Task List
+        </a>
+        <a href="{% url 'manager:task-update' task.pk %}" class="btn btn-outline-warning shadow-sm mx-2">
+          Edit Task
+        </a>
+        <a href="{% url 'manager:task-delete' task.pk %}" class="btn btn-outline-danger shadow-sm mx-2">
+          Delete Task
+        </a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

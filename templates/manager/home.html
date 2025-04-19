@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1 class="main-heading text-center mb-5">Hello, <span class="highlight">{{ current_user.first_name }}</span>!</h1>
+
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card stat-card add-task-card" onclick="window.location.href='{% url 'manager:task-create' %}'">
+          <div class="card-body text-white">
+            <h5 class="card-title">Add Task</h5>
+            <p class="card-text">Create a new task</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card stat-card add-task-card" onclick="window.location.href='{% url 'manager:task-list' %}'">
+          <div class="card-body">
+            <h5 class="card-title">Your Tasks</h5>
+            <p class="card-text display-4">{{ total_tasks }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card stat-card">
+          <div class="card-body">
+            <h5 class="card-title">Completed</h5>
+            <p class="card-text display-4 text-success">{{ completed_tasks }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12 mb-4">
+        <div class="card stat-card">
+          <div class="card-body">
+            <h5 class="card-title">Oldest Active Task</h5>
+            {% if oldest_task %}
+              <p class="card-text">
+                {{ oldest_task.name }}<br>
+                <small class="text-muted">{{ oldest_task.deadline|date:"M d, H:i" }}</small>
+              </p>
+            {% else %}
+              <p class="text-muted">You're all caught up!</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-6 mb-4">
+        <div class="card priority-card">
+          <div class="card-body">
+            <h5 class="card-title">Your Task Priorities</h5>
+            <ul class="list-group list-group-flush">
+              {% for key, value in priority_stats.items %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  {{ key }}
+                  <span class="badge badge-pill badge-primary">{{ value }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card upcoming-card">
+          <div class="card-body">
+            <h5 class="card-title">Upcoming Deadlines</h5>
+            <ul class="list-group list-group-flush">
+              {% for task in upcoming_tasks %}
+                <li class="list-group-item">
+                  <strong>{{ task.name }}</strong> – {{ task.deadline|date:"M d, H:i" }}
+                </li>
+              {% empty %}
+                <li class="list-group-item text-muted">No upcoming tasks.</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

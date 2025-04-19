@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Workers</h1>
+    <div class="row g-4">
+      {% for worker in page_obj %}
+        {% if not worker.is_superuser %}
+          <div class="col-md-4 d-flex">
+            <a href="{% url 'manager:worker-detail' worker.pk %}" class="text-decoration-none w-100">
+              <div class="card h-100 shadow-sm text-center border-0" style="background: linear-gradient(135deg, #f0f4ff, #e6ecff); border-radius: 1rem;">
+                <div class="card-body py-4">
+                  <div class="mb-3">
+                    <div style="font-size: 40px;">👤</div>
+                  </div>
+                  <h5 class="card-title text-dark mb-2">{{ worker.first_name }} {{ worker.last_name }}</h5>
+                  <p class="card-text text-muted">{{ worker.position }}</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        {% endif %}
+      {% empty %}
+        <div class="col-12 text-center">
+          <p>No workers available</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
