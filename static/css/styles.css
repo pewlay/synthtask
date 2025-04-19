@@ -70,7 +70,6 @@ body {
   text-align: center;
 }
 
-
 .add-task-card:hover,
 .add-task-card:focus,
 .add-task-card:active {
@@ -159,7 +158,6 @@ input:focus, select:focus, textarea:focus {
   pointer-events: none;
 }
 
-
 .task-detail-container {
   max-width: 800px;
   margin: 50px auto;
@@ -206,7 +204,6 @@ input:focus, select:focus, textarea:focus {
   background-color: #0056b3;
 }
 
-
 .btn {
   font-size: 16px;
   border-radius: 5px;
@@ -234,4 +231,3 @@ input:focus, select:focus, textarea:focus {
   margin-left: 10px;
   margin-right: 10px;
 }
-

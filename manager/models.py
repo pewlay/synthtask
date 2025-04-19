@@ -26,7 +26,8 @@ class Worker(AbstractUser):
         ordering = ("-position", "first_name", "last_name", )
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} (Position: {self.position})"
+        return (f"{self.first_name} {self.last_name} "
+                f"(Position: {self.position})")
 
 
 class TaskType(models.Model):
@@ -56,7 +57,10 @@ class Task(models.Model):
         default=Priority.LOW,
     )
     task_type = models.ForeignKey(TaskType, on_delete=models.CASCADE)
-    assignees = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="tasks")
+    assignees = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name="tasks"
+    )
 
     class Meta:
         ordering = ("priority", "-deadline", "name")

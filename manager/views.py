@@ -4,9 +4,12 @@ from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.utils.timezone import now
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-
-from manager.forms import PositionForm, TaskTypeForm, WorkerForm, TaskForm
+from django.views.generic import (ListView,
+                                  DetailView,
+                                  CreateView,
+                                  UpdateView,
+                                  DeleteView)
+from manager.forms import TaskTypeForm, WorkerForm, TaskForm
 from manager.models import Worker, Task, Position, TaskType
 
 
@@ -14,7 +17,10 @@ from manager.models import Worker, Task, Position, TaskType
 def home(request: HttpRequest) -> HttpResponse:
     user = request.user
     user_tasks = user.tasks.select_related("task_type").all()
-    upcoming_user_tasks = user_tasks.filter(deadline__gte=now(), is_completed=False).order_by("deadline")[:3]
+    upcoming_user_tasks = user_tasks.filter(
+        deadline__gte=now(),
+        is_completed=False
+    ).order_by("deadline")[:3]
     task_priority_count = {
         "Urgent": user_tasks.filter(priority="URGENT").count(),
         "High": user_tasks.filter(priority="HIGH").count(),
@@ -24,10 +30,14 @@ def home(request: HttpRequest) -> HttpResponse:
 
     context = {
         "total_tasks": user_tasks.count(),
-        "completed_tasks": user_tasks.filter(is_completed=True).count(),
+        "completed_tasks": user_tasks.filter(
+            is_completed=True
+        ).count(),
         "upcoming_tasks": upcoming_user_tasks,
         "priority_stats": task_priority_count,
-        "oldest_task": user_tasks.filter(is_completed=False).order_by("deadline").first(),
+        "oldest_task": user_tasks.filter(
+            is_completed=False
+        ).order_by("deadline").first(),
         "current_user": user,
     }
     return render(request, 'manager/home.html', context)
@@ -56,22 +66,34 @@ class TaskTypeListView(LoginRequiredMixin, ListView):
 
     TASK_TYPE_DESCRIPTIONS = {
         "Bug": "Fixing an error or unexpected behavior in the system.",
-        "Code Review": "Reviewing code written by others to ensure quality and consistency.",
-        "Deployment": "Releasing code or features to production or staging environments.",
-        "Feature": "Developing a new functionality or capability in the product.",
-        "Figma Collaboration": "Working together on UI/UX designs using Figma.",
-        "Hiring / Interview": "Participating in recruitment — interviews, reviewing CVs or test tasks.",
-        "Improvement": "Enhancing existing functionality or internal processes.",
+        "Code Review": "Reviewing code written by "
+                       "others to ensure quality and consistency.",
+        "Deployment": "Releasing code or features to production or "
+                      "staging environments.",
+        "Feature": "Developing a new functionality "
+                   "or capability in the product.",
+        "Figma Collaboration": "Working together on UI/UX "
+                               "designs using Figma.",
+        "Hiring / Interview": "Participating in recruitment — interviews, "
+                              "reviewing CVs or test tasks.",
+        "Improvement": "Enhancing existing functionality "
+                       "or internal processes.",
         "Meeting": "Team discussions, planning, syncs, or status updates.",
         "Mentorship": "Guiding or helping a colleague grow or solve problems.",
-        "Optimization": "Improving performance, efficiency, or system architecture.",
-        "Planning": "Organizing sprints, releases, or long-term product strategy.",
-        "Security": "Tasks focused on securing the system, such as audits or risk analysis.",
+        "Optimization": "Improving performance, "
+                        "efficiency, or system architecture.",
+        "Planning": "Organizing sprints, "
+                    "releases, or long-term product strategy.",
+        "Security": "Tasks focused on securing the system, "
+                    "such as audits or risk analysis.",
         "Security Patch": "Fixing security vulnerabilities in the codebase.",
         "Testing": "Writing or executing tests to validate software behavior.",
-        "UI Design": "Designing user interface elements such as buttons, layouts, and visuals.",
-        "UX Research": "Analyzing user behavior to improve product experience.",
-        "VPN Configuration": "Setting up or troubleshooting VPN access for secure connectivity.",
+        "UI Design": "Designing user interface elements such as "
+                     "buttons, layouts, and visuals.",
+        "UX Research": "Analyzing user behavior to improve "
+                       "product experience.",
+        "VPN Configuration": "Setting up or troubleshooting "
+                             "VPN access for secure connectivity.",
     }
 
     def get_context_data(self, **kwargs):
@@ -79,13 +101,6 @@ class TaskTypeListView(LoginRequiredMixin, ListView):
         context["task_type_list"] = TaskType.objects.all()
         context["task_type_description"] = self.TASK_TYPE_DESCRIPTIONS
         return context
-
-
-class TaskTypeCreateView(LoginRequiredMixin, CreateView):
-    model = TaskType
-    form_class = TaskTypeForm
-    success_url = reverse_lazy("manager:task_type-list")
-    template_name = "manager/tasktype_form.html"
 
 
 class WorkerListView(LoginRequiredMixin, ListView):

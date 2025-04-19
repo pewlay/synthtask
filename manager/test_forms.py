@@ -42,15 +42,16 @@ class WorkerFormTest(TestCase):
         self.assertTrue(form.is_valid())
 
 
-
 class TaskFormTest(TestCase):
     def setUp(self):
         self.position = Position.objects.create(name="Developer")
         self.worker = Worker.objects.create(
-            first_name="John", last_name="Doe", email="johndoe@example.com", position=self.position
+            first_name="John",
+            last_name="Doe",
+            email="johndoe@example.com",
+            position=self.position
         )
         self.task_type = TaskType.objects.create(name="Bug Fix")
-
 
     def test_task_form_invalid(self):
         form = TaskForm(data={})
