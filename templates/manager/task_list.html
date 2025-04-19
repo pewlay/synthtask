@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1 class="mb-4">Your Tasks</h1>
+
+    <div class="row">
+      {% for task in task_list %}
+        <div class="col-md-4 mb-4">
+          <div class="card task-card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <a href="{% url 'manager:task-detail' task.pk %}" class="text-primary">{{ task.name }}</a>
+              </h5>
+              <p class="card-text">{{ task.description }}</p>
+              <p class="card-text"><strong>Type:</strong> {{ task.task_type }}</p>
+              <p class="card-text"><strong>Deadline:</strong> {{ task.deadline|date:"M d, Y H:i" }}</p>
+              <p class="card-text"><strong>Priority:</strong> {{ task.priority }}</p>
+              <p class="card-text">
+                {% if task.is_completed %}
+                  <span class="badge badge-success">Completed</span>
+                {% else %}
+                  <span class="badge badge-info">Pending</span>
+                {% endif %}
+              </p>
+            </div>
+          </div>
+        </div>
+      {% empty %}
+        <div class="col-12 text-center">
+          <p>No tasks available</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
