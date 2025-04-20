@@ -1,0 +1,893 @@
+[
+{
+    "model": "manager.position",
+    "pk": 1,
+    "fields": {
+        "name": "Team Lead"
+    }
+},
+{
+    "model": "manager.position",
+    "pk": 2,
+    "fields": {
+        "name": "Project Manager"
+    }
+},
+{
+    "model": "manager.position",
+    "pk": 3,
+    "fields": {
+        "name": "Python Developer"
+    }
+},
+{
+    "model": "manager.position",
+    "pk": 4,
+    "fields": {
+        "name": "DevOps Engineer"
+    }
+},
+{
+    "model": "manager.position",
+    "pk": 5,
+    "fields": {
+        "name": "QA Engineer"
+    }
+},
+{
+    "model": "manager.position",
+    "pk": 6,
+    "fields": {
+        "name": "UI/UX Designer"
+    }
+},
+{
+    "model": "manager.position",
+    "pk": 7,
+    "fields": {
+        "name": "Data Analyst"
+    }
+},
+{
+    "model": "manager.position",
+    "pk": 8,
+    "fields": {
+        "name": "System Administrator"
+    }
+},
+{
+    "model": "manager.position",
+    "pk": 9,
+    "fields": {
+        "name": "Machine Learning Engineer"
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$8cphtotTWlaBgyD3T587R8$fXEIIilGWC59xnZy8tkQLtrgbKc5XU/ZKVZAvVSDvp0=",
+        "last_login": "2025-04-19T11:30:25.188Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "Polina",
+        "last_name": "",
+        "email": "admin@admin.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-04-15T20:07:04Z",
+        "position": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$VNRQgUhS3D8pKl2614QxYm$NXUh7P8R/m8bRYD+fyyXXCqjn+lgwUJAPKFDuLUz1fI=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "o_levchnko",
+        "first_name": "Oleh",
+        "last_name": "Levchenko",
+        "email": "oleh_levchenko@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-15T20:41:16Z",
+        "position": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$AelYxqttaXDwnCVlwSvD61$PhSmjNIGS/Z00vss+zlO7+wd9mrQrbOzP9WBOFOig18=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "m_lynch",
+        "first_name": "Michel",
+        "last_name": "Lynch",
+        "email": "michel_lynch@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T06:56:03Z",
+        "position": 8,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$Ny0Lgiw8qczqCFb495Cbnv$51/sAElO4/s51lZ4Yc6xwo/t/GkRecvidSdAPMwPPrs=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "p_biluy",
+        "first_name": "Pavlo",
+        "last_name": "Bilyu",
+        "email": "pavlo_biluy@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T06:57:03Z",
+        "position": 7,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$RRFqievbjDZ63DpxOysUGS$gcJfUGN77WxDsDYZlL+X3j5cbJPfa14LJkTr8patmPE=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "o_shevchenko",
+        "first_name": "Olena",
+        "last_name": "Shevchenko",
+        "email": "olena_shevchenko@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T06:57:36Z",
+        "position": 7,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$4jU2v8K0k1shG7ignzyS13$9nndTws8KfscssSqt56ZXHwVl09O3+/SN+YmCgWbcmM=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "o_babenko",
+        "first_name": "Oresta",
+        "last_name": "Babenko",
+        "email": "oresta_babenko@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T06:58:20Z",
+        "position": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$kBkliaInHfs2JsyBtDaTLc$efy2GzEEyJmzE+5Y9cDJjs8uudVM1z7PXeZGw9Hl2WI=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "k_lukovenko",
+        "first_name": "Ksenia",
+        "last_name": "Lukovenko",
+        "email": "ksenia_lukovenko@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T06:59:17Z",
+        "position": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$E6tsG6MHyh1Jy9pYosaSUX$rj2OlSTL3iIDcphAj9LD5DYjwiKcS86PmGhPC5/PQqA=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "m_malysh",
+        "first_name": "Maksym",
+        "last_name": "Malysh",
+        "email": "maksym_malysh@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T06:59:43Z",
+        "position": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 9,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$i8gRz0ufi3SjO9VFdtwYPP$cU7T2WCeMnkr0gKA5PRQ1/o99/ddQfRCWrjSf994kHo=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "d_basika",
+        "first_name": "Dmytro",
+        "last_name": "Basika",
+        "email": "dmytro_basika@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:01:32Z",
+        "position": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 10,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$FpZuNUnwjusEMOBOIDOvNq$Kc9fwRDv7ylCyfCbYS0RowQzXhwzPzomOCk9rYIczJM=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "t_voyin",
+        "first_name": "Tymofii",
+        "last_name": "Voyin",
+        "email": "tymofii_voyin@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:02:11Z",
+        "position": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 11,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$wuASGW035e0N915phsEiKV$Vj0naY414tS5WTyXrVqJ2A/Y3P3lE7nZquuNLViWzHU=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "t_kalysh",
+        "first_name": "Tamara",
+        "last_name": "Kalysh",
+        "email": "tamara_kalysh@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:02:43Z",
+        "position": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 12,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$mZfR7dcV99ma44UAN9vHMs$MtNs7YL+RbMwSnXdXvWCTVF6ttj13/0aY68Gw4KZbLg=",
+        "last_login": "2025-04-19T11:32:45.671Z",
+        "is_superuser": false,
+        "username": "p_haltseva",
+        "first_name": "Polina",
+        "last_name": "Haltseva",
+        "email": "polina_haltseva@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:03:21Z",
+        "position": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 13,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$GpyBc7vJq2M1QAghEGyiog$U9rt2otB5Y1cmzgpOttpw1WMd8OwmlR198agjlVboG0=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "y_voronin",
+        "first_name": "Yaroslav",
+        "last_name": "Voronin",
+        "email": "yaroslav_voronin@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:05:09Z",
+        "position": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 14,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$FwYArFSlcuhs6G3vrSqJp8$hyeBHRTDXNobF0gY54SCcdzaPkouFgHQruZm0cieT+s=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "m_antonyk",
+        "first_name": "Maryna",
+        "last_name": "Antonyk",
+        "email": "maryna_antonyk@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:06:13Z",
+        "position": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 15,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$ubh6k5watldYNVvKioKNi8$/uy35Kg1x8uqT5fArkXCNjQGAFXAIdEeeo4w2j3OWqw=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "b_avramenko",
+        "first_name": "Bohdan",
+        "last_name": "Avramenko",
+        "email": "bohdan_avramenko@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:07:19Z",
+        "position": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 16,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$rgF15Dp3MfNYv577zQQaDE$EYGCa3MjvNOFytFEV0hxOMWvoMtm0aiQ242CUpRr7Ik=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "a_nosko",
+        "first_name": "Amina",
+        "last_name": "Nosko",
+        "email": "amina_nosko@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:08:09Z",
+        "position": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 17,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$hhNyNqWuB2v0AwyYlz1wyi$GPA9cNN+i0Y6RS1cVt96669OZ9NIf0Vs8bYFWMfY4pA=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "m_ostapenko",
+        "first_name": "Mykyta",
+        "last_name": "Ostapenko",
+        "email": "mykyta_ostapenko@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:08:45Z",
+        "position": 5,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 18,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$WXA6A7Tppotq1T9deu7iCB$Nml5XRuwLFLy8PDXZLsckdyx7upr4Udw4Nh2G5OoLqg=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "m_nalozhniy",
+        "first_name": "Mykyta",
+        "last_name": "Nalozhniy",
+        "email": "mykyta_nalozhniy@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:09:23Z",
+        "position": 5,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 19,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$q92MxN6ycC2TNnehU3VaLe$j3a+bSg1tte9BZQB3qTJ6jtRX869nKuL6zrDcxsUn4s=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "a_pavlyk",
+        "first_name": "Anna",
+        "last_name": "Pavlyk",
+        "email": "anna_pavlyk@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:10:03Z",
+        "position": 5,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 20,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$zDd80q7YCFlZigQWrb9BJa$Q+oZFoxg6EQwRNdmsq7WAWeY6BCq04Cp9Ui0DaHmJvU=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "m_glovenko",
+        "first_name": "Mariia",
+        "last_name": "Glovenko",
+        "email": "mariia_glovenko@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:10:41Z",
+        "position": 5,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 21,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$2lISgtLZNPRF6uKNRcMz3p$NXZeXIR5h5Jf9I4j2TB/f3p+5wdHvFMUdYWG4JbdW9A=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "b_vlastenko",
+        "first_name": "Bogdan",
+        "last_name": "Vlastenko",
+        "email": "bogdan_vlastenko@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:11:22Z",
+        "position": 5,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 22,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$79uh8g00acKMVmx373f8IY$fzP2QPeg9okpH/fqqunUTC5a5JSDpR1TnPfAoAncvnM=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "a_borovyi",
+        "first_name": "Andrii",
+        "last_name": "Borovyi",
+        "email": "andrii_borovyi@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:11:50Z",
+        "position": 4,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 23,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$bHaAU2uYMuQfggkNAWJURo$INE5ydOnj38FVjcoDEJOYzG8h1HTdxYWzbaqpgCXVSw=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "a_zayits",
+        "first_name": "Andryi",
+        "last_name": "Zayits",
+        "email": "andryi_zayits@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:12:32Z",
+        "position": 4,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 24,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$Us74acBBAdHwK79NmPNKSv$uCkP+vKBd1BIIvuLRthnqVTzE0/s0ISGbvokzX1tOXA=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "s_koshovyi",
+        "first_name": "Sergii",
+        "last_name": "Koshovyi",
+        "email": "sergii_koshovyi@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:15:31Z",
+        "position": 9,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 25,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$8Mi01wKsJLYwKBtgMVEeSg$OpOq+aEETA9FfWhIF1AOYVUVDXvG+ZDuEbsLAMrItxw=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "r_lapenko",
+        "first_name": "Ruslana",
+        "last_name": "Lapenko",
+        "email": "ruslana_lapenko@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:16:06Z",
+        "position": 9,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 26,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$nqJXaM0ujFmu4xGEYzNV22$MWgQ5mUznornn+lM1gMf2Q7QMe9/h3PfwsEYNB2/0LI=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "d_zagoryi",
+        "first_name": "Denys",
+        "last_name": "Zagoryi",
+        "email": "denys_zagoryi@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:16:38Z",
+        "position": 9,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 27,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$CeWeehttVhCijpcsrTQTgb$SgveT9Qisk/w1JxqnBT87jwIrUjATc3c0rw96+ADLWE=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "m_ishenko",
+        "first_name": "Mykhailo",
+        "last_name": "Ishenko",
+        "email": "mykhailo_ishenko@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:17:20Z",
+        "position": 9,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 28,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$Graecf5tSz6y3MkYjlJKZz$diCjuQpxFYzDjYEzV+hueA/wfew00QnKuQGIkd2Oemg=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "m_nosenko",
+        "first_name": "Maria",
+        "last_name": "Nosenko",
+        "email": "maria_nosenko@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:17:49Z",
+        "position": 9,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 29,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$BumxGNtrNDuy9dDESArKJn$977k1VIjSIS7NOn7kT4bXIAO6jMQFSJskbkA8lB8334=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "i_derkach",
+        "first_name": "Ivan",
+        "last_name": "Derkach",
+        "email": "ivan_derkach@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:18:25Z",
+        "position": 9,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 30,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$VtuRj6VYxkT3Lqm5WYl6MG$zmx6Flup399NKRPJeSiR64IOH7L5VXMFh+lmk+gzENA=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "d_dykyi",
+        "first_name": "Dmytro",
+        "last_name": "Dykyi",
+        "email": "dmytro_dykyi@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:19:12Z",
+        "position": 9,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 31,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$03994OR0jVyUAuyANmosp7$3f22pX3v+4lN/OZLZNni1bmw1iM1Nv4xc7TvSNJ8e+s=",
+        "last_login": "2025-04-18T15:19:55.602Z",
+        "is_superuser": false,
+        "username": "a_dniprovska",
+        "first_name": "Anfisa",
+        "last_name": "Dniprovska",
+        "email": "anfisa_dniprovska@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:20:09Z",
+        "position": 6,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 32,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$N9V0IG5BfChlMVJugIseaR$66xbW1oQj5dHOMQT3/ndbotoXvy7UGTibgpOIdYgllY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "a_bandera",
+        "first_name": "Alina",
+        "last_name": "Bandera",
+        "email": "alina_bandera@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:20:47Z",
+        "position": 6,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.worker",
+    "pk": 33,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$1WyF18gYl9bw7WNBXksH1v$9GhTo435vzXrg2d0ZULtFHaJIQzrbh9v+ZRfEiYRC9o=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "b_vovk",
+        "first_name": "Bohdana",
+        "last_name": "Vovk",
+        "email": "bogdana_vovk@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-16T07:21:16Z",
+        "position": 6,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 1,
+    "fields": {
+        "name": "Bug"
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 2,
+    "fields": {
+        "name": "Feature"
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 3,
+    "fields": {
+        "name": "Improvement"
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 4,
+    "fields": {
+        "name": "Testing"
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 5,
+    "fields": {
+        "name": "Meeting"
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 6,
+    "fields": {
+        "name": "Security"
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 7,
+    "fields": {
+        "name": "Deployment"
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 8,
+    "fields": {
+        "name": "Planning"
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 9,
+    "fields": {
+        "name": "VPN Configuration"
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 10,
+    "fields": {
+        "name": "Security Patch"
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 11,
+    "fields": {
+        "name": "Hiring / Interview"
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 12,
+    "fields": {
+        "name": "Mentorship"
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 13,
+    "fields": {
+        "name": "Code Review"
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 14,
+    "fields": {
+        "name": "Optimization"
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 15,
+    "fields": {
+        "name": "UI Design"
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 16,
+    "fields": {
+        "name": "UX Research"
+    }
+},
+{
+    "model": "manager.tasktype",
+    "pk": 17,
+    "fields": {
+        "name": "Figma Collaboration"
+    }
+},
+{
+    "model": "manager.task",
+    "pk": 1,
+    "fields": {
+        "name": "Morning meeting",
+        "description": "Discussion of tasks for the day",
+        "deadline": "2025-04-16T09:00:00Z",
+        "is_completed": true,
+        "priority": "HIGH",
+        "task_type": 5,
+        "assignees": [
+            32,
+            31,
+            33,
+            9,
+            7,
+            8,
+            6,
+            3,
+            19,
+            21,
+            20,
+            18,
+            17,
+            16,
+            15,
+            14,
+            12,
+            11,
+            10,
+            13,
+            2,
+            26,
+            30,
+            29,
+            28,
+            27,
+            25,
+            24,
+            22,
+            23,
+            5,
+            4,
+            1
+        ]
+    }
+},
+{
+    "model": "manager.task",
+    "pk": 2,
+    "fields": {
+        "name": "Project design",
+        "description": "Develop a design for a new project",
+        "deadline": "2025-04-20T18:00:00Z",
+        "is_completed": false,
+        "priority": "MEDIUM",
+        "task_type": 15,
+        "assignees": [
+            32,
+            31,
+            33,
+            9
+        ]
+    }
+},
+{
+    "model": "manager.task",
+    "pk": 3,
+    "fields": {
+        "name": "Check projects",
+        "description": "Check the codes provided by the interns",
+        "deadline": "2025-04-23T00:00:00Z",
+        "is_completed": false,
+        "priority": "MEDIUM",
+        "task_type": 13,
+        "assignees": [
+            12,
+            11,
+            10
+        ]
+    }
+}
+]
