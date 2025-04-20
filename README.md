@@ -52,4 +52,4 @@ Password: Test4567!
 python manage.py runserver
 ```
 
-Once the server is running, open http://127.0.0.1:8000/manager/ in your browser to access the application.
+Once the server is running, open https://synthtask.onrender.com in your browser to access the application.
