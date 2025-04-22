@@ -1,6 +1,5 @@
 from django.urls import path
 from manager.views import (
-    home,
     PositionListView,
     TaskTypeListView,
     WorkerListView,
@@ -13,6 +12,7 @@ from manager.views import (
     TaskCreateView,
     TaskUpdateView,
     TaskDeleteView,
+    HomeView,
 )
 
 
@@ -20,7 +20,7 @@ app_name = 'manager'
 
 
 urlpatterns = [
-    path('', home, name='home'),
+    path('', HomeView.as_view(), name='home'),
     path('positions/', PositionListView.as_view(), name='position-list'),
     path('types/', TaskTypeListView.as_view(), name='task_type-list'),
     path('workers/', WorkerListView.as_view(), name='worker-list'),
