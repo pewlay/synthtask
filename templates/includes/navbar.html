@@ -18,9 +18,11 @@
       </li>
     </ul>
 
-    <form method="post" action="{% url 'logout' %}" class="form-inline my-2 my-lg-0">
-      {% csrf_token %}
-      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
-    </form>
+    {% if user.is_authenticated %}
+      <form method="post" action="{% url 'logout' %}" class="form-inline my-2 my-lg-0">
+        {% csrf_token %}
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
+      </form>
+    {% endif %}
   </div>
 </nav>
