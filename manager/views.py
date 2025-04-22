@@ -11,36 +11,40 @@ from django.views.generic import (ListView,
                                   DeleteView)
 from manager.forms import TaskTypeForm, WorkerForm, TaskForm
 from manager.models import Worker, Task, Position, TaskType
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.utils.timezone import now
+from django.views.generic import TemplateView
 
 
-@login_required
-def home(request: HttpRequest) -> HttpResponse:
-    user = request.user
-    user_tasks = user.tasks.select_related("task_type").all()
-    upcoming_user_tasks = user_tasks.filter(
-        deadline__gte=now(),
-        is_completed=False
-    ).order_by("deadline")[:3]
-    task_priority_count = {
-        "Urgent": user_tasks.filter(priority="URGENT").count(),
-        "High": user_tasks.filter(priority="HIGH").count(),
-        "Medium": user_tasks.filter(priority="MEDIUM").count(),
-        "Low": user_tasks.filter(priority="LOW").count(),
-    }
+class HomeView(LoginRequiredMixin, TemplateView):
+    template_name = 'manager/home.html'
 
-    context = {
-        "total_tasks": user_tasks.count(),
-        "completed_tasks": user_tasks.filter(
-            is_completed=True
-        ).count(),
-        "upcoming_tasks": upcoming_user_tasks,
-        "priority_stats": task_priority_count,
-        "oldest_task": user_tasks.filter(
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        user_tasks = user.tasks.select_related("task_type").all()
+
+        upcoming_user_tasks = user_tasks.filter(
+            deadline__gte=now(),
             is_completed=False
-        ).order_by("deadline").first(),
-        "current_user": user,
-    }
-    return render(request, 'manager/home.html', context)
+        ).order_by("deadline")[:3]
+
+        task_priority_count = {
+            "Urgent": user_tasks.filter(priority="URGENT").count(),
+            "High": user_tasks.filter(priority="HIGH").count(),
+            "Medium": user_tasks.filter(priority="MEDIUM").count(),
+            "Low": user_tasks.filter(priority="LOW").count(),
+        }
+
+        context.update({
+            "total_tasks": user_tasks.count(),
+            "completed_tasks": user_tasks.filter(is_completed=True).count(),
+            "upcoming_tasks": upcoming_user_tasks,
+            "priority_stats": task_priority_count,
+            "oldest_task": user_tasks.filter(is_completed=False).order_by("deadline").first(),
+            "current_user": user,
+        })
+        return context
 
 
 class PositionListView(LoginRequiredMixin, ListView):
