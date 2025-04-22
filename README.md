@@ -52,4 +52,11 @@ Password: Test4567!
 python manage.py runserver
 ```
 
+### Loading initial data
+
+```bash
+python manage.py loaddata fixtures/initial_data.json
+```
+
+
 Once the server is running, open http://127.0.0.1:8000 in your browser to access the application.
