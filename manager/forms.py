@@ -1,5 +1,7 @@
 from django import forms
-from django.forms.widgets import DateInput
+from django.forms.widgets import DateTimeInput
+from django.utils.timezone import now
+
 from manager.models import Worker, Task, Position, TaskType
 
 
@@ -46,13 +48,27 @@ class TaskForm(forms.ModelForm):
             'task_type'
         ]
         widgets = {
-            'deadline': DateInput(
+            'deadline': DateTimeInput(
                 attrs={
-                    'type': 'date',
-                    'class': 'form-control'
-                }
+                    'type': 'datetime-local',
+                    'class': 'form-control',
+                },
+                format='%Y-%m-%dT%H:%M'
             ),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.initial.get('deadline'):
+            self.initial['deadline'] = self.initial[
+                'deadline'
+            ].strftime('%Y-%m-%dT%H:%M')
+
+    def clean_deadline(self):
+        deadline = self.cleaned_data.get('deadline')
+        if deadline and deadline < now():
+            raise forms.ValidationError("Deadline cannot be in the past.")
+        return deadline
 
     def clean_assignees(self):
         assignees = self.cleaned_data.get('assignees')
